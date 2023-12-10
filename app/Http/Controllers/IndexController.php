@@ -21,11 +21,9 @@ class IndexController extends Controller
     }
     public function rubric($id)
     {
+        $rubric = Rubric::findOrFail($id);
         $rubrics = Rubric::all();
-        $rubric = Rubric::find($id);
-        if (!$rubric) {
-            abort(404, 'Рубрика не найдена');
-        }
+
         $statyas = Statya::where('rubric_id', $rubric->id)->get();
         $user = Auth::user();
         $isAdmin = false;

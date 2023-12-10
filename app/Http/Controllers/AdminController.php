@@ -33,7 +33,6 @@ class AdminController extends Controller
             'image' => basename($imagePath),
             'rubric_id' => $request['rubric_id'],
         ]);
-
         return redirect('/')->with('success', 'Статья успешно добавлена!');
     }
 
